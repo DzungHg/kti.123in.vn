@@ -20,117 +20,32 @@ urls()->set('jquery', 'wire/modules/Jquery/JqueryCore/JqueryCore.js');
 	<meta name="description" content="<?=page()->summary?>">
 	
 	<link rel="stylesheet" href="<?=urls()->uikit?>css/uikit.min.css" />
-	<link rel="stylesheet" href="<?=urls()->templates?>styles/main.css">
+	<!--bớt 1 link ở đây --->
 	
 	<script src="<?=urls()->jquery?>"></script>
 	<script src="<?=urls()->uikit?>js/uikit.min.js"></script>
 	<script src="<?=urls()->uikit?>js/uikit-icons.min.js"></script>
+	<!-- New Theme --->
+	<link rel="icon" href="<?=urls()->templates?>styles/img/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+    <script src="<?=urls()->templates?>styles/js/jquery.js"></script>
+    <link rel="stylesheet" href="<?=urls()->templates?>styles/css/main.css" />
+    <script src="<?=urls()->templates?>styles/js/uikit.js"></script>
+    <script src="<?=urls()->templates?>styles/js/uikit-icons.js"></script>
+    <script src="<?=urls()->templates?>styles/js/main.js"></script>
+	<!-- Hết  New Theme --->
+
 </head>
 <body id='html-body'>
-
-	<!-- MASTHEAD -->
-	<header class='uk-background-muted'>
-		<div id='masthead' class="uk-container">
-			<h2 id='masthead-logo' class='uk-text-center uk-margin-medium-top uk-margin-small-bottom'>
-				<a href='<?=urls()->root?>'>
-					<img src='<?=urls()->templates?>styles/images/coffee4.svg' alt='coffee'><br />
-				</a>	
-				<?=$siteTitle?>
-			</h2>
-			<p id='masthead-tagline' class='uk-text-center uk-text-small uk-text-muted uk-margin-remove'>
-				<?=$siteTagline?>
-			</p>
-			<nav id='masthead-navbar' class="uk-navbar-container" uk-navbar>
-				<div class="uk-navbar-center uk-visible@m">
-					<?=ukNavbarNav($home->and($home->children), [ 
-						'dropdown' => [ 'basic-page', 'categories' ]
-					])?>
-				</div>
-			</nav>
-		</div>
-	</header>	
-
-	<!-- MAIN CONTENT -->
-	<main id='main' class='uk-container uk-margin uk-margin-large-bottom'>
-		<?php if(page()->parent->id > $home->id) echo ukBreadcrumb(page(), [ 'class' => 'uk-visible@m' ]); ?>
-		<div class='uk-grid-large' uk-grid>
-			<div id='content' class='uk-width-expand'>
-				<h1 id='content-head' class='uk-margin-small-top'>
-					<?=page()->get('headline|title')?>
-				</h1>
-				<div id='content-body'>
-					<?=page()->body?>
-				</div>
-			</div>
-			<aside id='sidebar' class='uk-width-1-3@m'>
-				<?=page()->sidebar?>
-			</aside>
-		</div>
-	</main>
-
-	<?php if(config()->debug && user()->isSuperuser()): // display region debugging info ?>
-	<section id='debug' class='uk-section uk-section-muted'>	
-		<div class='uk-container'>
-			<!--PW-REGION-DEBUG-->
-		</div>	
-	</section>	
-	<?php endif; ?>
-
+<pw-region id="page-content">
+			
+</pw-region>
 	<!-- FOOTER -->
-	<footer class='uk-section uk-section-secondary'>
-		<div id='footer' class='uk-container'>
-			<div uk-grid>
-				<div class='uk-width-1-3@m uk-flex-last@m uk-text-center'>
-					<form class='uk-search uk-search-default' action='<?=pages()->get('template=search')->url?>' method='get'>
-						<button type='submit' class='uk-search-toggle uk-search-icon-flip' uk-search-icon></button>
-						<input type='search' id='search-query' name='q' class='uk-search-input' placeholder='Search&hellip;'>
-					</form>
-				</div>	
-				<div class='uk-width-2-3@m uk-flex-first@m uk-text-center uk-text-left@m'>
-					<h3 class='uk-margin-remove'>
-						<?=$siteTitle?>
-						<small class='uk-text-small uk-text-muted'><?=$siteTagline?></small>
-					</h3>
-					<p class='uk-margin-remove'>
-						<small class='uk-text-small uk-text-muted'>&copy; <?=date('Y')?> &bull;</small>
-						<a href='https://processwire.com'>Powered by ProcessWire CMS</a>
-					</p>
-				</div>	
-			</div>	
-		</div>
-	</footer>
+	<?php include("./blocks/_page-footer.php"); ?>
 	
 	<!-- OFFCANVAS NAV TOGGLE -->
-	<a id='offcanvas-toggle' class='uk-hidden@m' href="#offcanvas-nav" uk-toggle>
-		<?=ukIcon('menu', 1.3)?>
-	</a>
-
 	<!-- OFFCANVAS NAVIGATION -->
-	<div id="offcanvas-nav" uk-offcanvas>
-		<div class="uk-offcanvas-bar">
-			<h3><a href='<?=urls()->root?>'><?=$siteTitle?></a></h3>
-			<?php 
-			// offcanvas navigation
-			// example of caching generated markup (for 600 seconds/10 minutes)
-			echo cache()->get('offcanvas-nav', 10, function() {
-				return ukNav(pages()->get('/')->children(), [
-					'depth' => 1,
-					'accordion' => true,
-					'blockParents' => [ 'blog' ],
-					'repeatParent' => true,
-					'noNavQty' => 20
-				]);
-			});
-			?>
-		</div>
-	</div>
-
-	<?php if(page()->editable): ?>
-	<!-- PAGE EDIT LINK -->
-	<a id='edit-page' href='<?=page()->editUrl?>'>
-		<?=ukIcon('pencil')?> Edit
-	</a>
-	<?php endif; ?>
+	<?php include("./blocks/_offcanvas-nav.php"); ?>
 
 </body>
 </html>

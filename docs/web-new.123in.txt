@@ -1,0 +1,17 @@
+==22/12/2019== làm như sau
+2). Sửa config
+
+Database:
+Web FW: ProcessWire
+
+admin/Admin@1234
+
+Database:
+Database:	ad123in_kti
+Host:		localhost
+Username:	ad123in_123in
+Password:	2zgfjteK
+
+Host trên VDC
+DM: kti.123in.vn
+ad123in/2zgfjteK

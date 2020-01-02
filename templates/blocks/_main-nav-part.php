@@ -1,11 +1,11 @@
 <div class="uk-container">
                 <div uk-navbar>
                     <div class="uk-navbar-left">
-                        <a class="uk-navbar-item uk-logo uk-text-uppercase" href="index.html"><span class="uk-margin-small-right" uk-icon="icon: lifesaver"></span> Knowledge</a>
+                        <a class="uk-navbar-item uk-logo uk-text-uppercase" href="/"><span class="uk-margin-small-right" uk-icon="icon: lifesaver"></span> KIẾN THỨC IN ẤN</a>
                     </div>
                     <div class="uk-navbar-right">
                         <ul class="uk-navbar-nav uk-text-uppercase uk-visible@m uk-margin-medium-left">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="/">Home</a></li>
                             <li>
                                 <a href="article.html">Article</a>
                                 <div class="uk-navbar-dropdown">

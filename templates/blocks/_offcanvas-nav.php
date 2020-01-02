@@ -1,8 +1,8 @@
 <div id="offcanvas" uk-offcanvas="flip: true; overlay: true">
         <div class="uk-offcanvas-bar">
-            <a class="uk-margin-small-bottom uk-logo uk-text-uppercase" href="index.html"><span class="uk-margin-small-right" uk-icon="icon: lifesaver"></span> Knowledge</a>
+            <a class="uk-margin-small-bottom uk-logo uk-text-uppercase" href="/"><span class="uk-margin-small-right" uk-icon="icon: lifesaver"></span> Kiến Thức In Ấn</a>
             <ul class="uk-nav uk-nav-default uk-text-uppercase">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li class="uk-parent">
                     <a href="article.html">Article</a>
                     <ul class="uk-nav-sub">

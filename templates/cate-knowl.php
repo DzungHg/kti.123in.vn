@@ -10,6 +10,25 @@ function renderArticleList($items)
 	}
 	return $out;
 }
+//-- reder danh mục
+$danhMuc = pages()->get('/kien-thuc-in-an/');
+$danhMucS = $danhMuc->children;
+function renderDanhMucKienThuc($danhMucS, Page $currentPage)
+{
+    $out = '';
+    foreach ($danhMucS as $item )
+    {
+        if ($item == $currentPage)
+        {
+            $out .= "<li><a class='uk-text-bold' href='$item->url'>$item->title</a> <span uk-icon='icon: chevron-right'></span></li>";
+        } else
+        {
+            $out .= "<li><a href='$item->url'>$item->title</a></li>";
+        }
+
+    }
+    return $out;
+}
 ?>
 
 <pw-region id="page-content">
@@ -37,16 +56,9 @@ function renderArticleList($items)
                     </ul>
                 </div>
                 <div class="uk-width-1-4@m text-dark sidebar">
-                    <h3>Categories</h3>
+                    <h3>Danh Mục Kiến Thức</h3>
                     <ul class="uk-list uk-list-large uk-margin-medium-bottom">
-                        <li><a href="#">Getting Started</a></li>
-                        <li><a class="uk-text-bold" href="#">Account Management</a> <span uk-icon="icon: chevron-right"></span></li>
-                        <li><a href="#">Admin Panel</a></li>
-                        <li><a href="#">Extensions</a></li>
-                        <li><a href="#">Shipping Methods</a></li>
-                        <li><a href="#">Tips and Tricks</a></li>
-                        <li><a href="#">Troubleshooting</a></li>
-                        <li><a href="#">Video Tutorials</a></li>
+                        <?=renderDanhMucKienThuc($danhMucS, $page)?>
                     </ul>
                     <h3>Related Articles</h3>
                     <ul class="uk-list uk-list-large">

@@ -34,14 +34,14 @@ function renderDanhMucKienThuc($items)
             </div>
         </div>
 </div>
-
+<!-- nội dung -->
 <div class="uk-section">
         <div class="uk-container">
             <div class="uk-child-width-1-3@s uk-grid-match uk-grid-medium uk-text-center" uk-grid>
 					<?=renderDanhMucKienThuc($blogPost) ?>
             </div>
         </div>
-    </div>
+</div>
 
 <div class="uk-section uk-padding-remove-top uk-padding-remove-bottom">
         <div class="uk-container">

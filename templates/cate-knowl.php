@@ -50,10 +50,22 @@ function renderDanhMucKienThuc($danhMucS, Page $currentPage)
                     <ul class="uk-list list-category link-icon-right">
                         <?php echo renderArticleList($page->children); ?>
                     </ul>
+                    <!--
                     <ul class="uk-pagination uk-margin-medium-top" uk-margin>
                         <li><a href="#"><span class="uk-margin-small-right" uk-pagination-previous></span> Previous</a></li>
                         <li class="uk-margin-auto-left"><a href="#">Next <span class="uk-margin-small-left" uk-pagination-next></span></a></li>
-                    </ul>
+                    </ul> -->
+                    <!-- thay bằng  -->
+                    <?php
+                        $posts = page()->children('limit=10');
+                        echo $posts->renderPager(array(
+                           'nextItemLabel' => "Next",
+                           'previousItemLabel' => "Prev",
+                           'listMarkup' => "<ul class='uk-pagination uk-margin-medium-top' uk-margin>{out}</ul>",
+                           'itemMarkup' => "<li class='{class}'>{out}</li>",
+                           'linkMarkup' => "<a href='{url}'><span>{out}</span></a>"
+                        ));  
+                        ?>
                 </div>
                 <div class="uk-width-1-4@m text-dark sidebar">
                     <h3>Danh Mục Kiến Thức</h3>

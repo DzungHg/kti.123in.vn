@@ -1,11 +1,13 @@
+<?php  use function ProcessWire\ukBreadcrumb; ?>
 <header class="uk-section section-sub-nav uk-padding-remove">
         <div class="uk-container">
             <div uk-grid>
                 <div class="uk-width-2-3@m">
-                    <ul class="uk-breadcrumb uk-visible@m">
+                <?=ukBreadcrumb($page, ['class' => '', 'appendCurrent' => true])?>
+                    <!--<ul class="uk-breadcrumb uk-visible@m">
                         <li><a href="index.html">Home</a></li>
-                        <li><span href="">Account Management</span></li>
-                    </ul>
+                        <li><span href="">Account Management</span></li> 
+                    </ul>-->
                 </div>
                 <div class="uk-width-1-3@m">
                     <div class="uk-margin">

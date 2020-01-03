@@ -34,34 +34,21 @@
                         </header>
                         <div class="entry-content uk-margin-medium-top">
 							<p class="uk-text-lead"><?=$page->summary?></p>
-							<!--bắt đầu render các paragraph  ở đây -->
-                            <h2 id="animation-repeat">Instalation</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            <h2 id="animation-delay">Quick Setup</h2>
-                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillriatur. Excepteur sint occaecat cupidatat non proident,
-                                sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            <h4>Change your password</h4>
-                            <ol class="ol-pretty uk-list-large">
-                                <li>Click your team name to open the Team Menu.</li>
-                                <li>Select Profile & account. This will open your profile on the right side of your screen.</li>
-                                <li>Under your name, click Account Settings. This will open your Account settings.</li>
-                                <li>By Password, click expand.</li>
-                                <li>Enter your Current Password, and then a New Password.</li>
-                                <li>Click Save Password.</li>
-                            </ol>
-                            <h2 id="animation-fade">Advanced Options</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            <h2 id="animation-scale-up">Content Import</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                            <div class="uk-alert-primary" uk-alert>
-                                <p>If you've followed the steps above, but have yet to receive a password reset email, please check all tabs, folders, and spam filters in your inbox.</p>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<!--bắt đầu render các paragraph  ở đây h2 và dữ liệu CK -->
+                            <?php
+                            $out = '';
+                            foreach ($page->knowl_repeater_mat as $item) {
+                                if($item->type == 'knowl_body_para') {
+                                    $out .= "<h2 id='$item->anchor_id'>$item->headline</h2>
+                                        $item->text_area_ck
+                                    ";
+                                }
+                            }
+                            echo $out;
+                            
+                            ?>
+                            
+                                <!-- kết thúc render các paragraph  ở đây h2 và dữ liệu CK -->
                         </div>
                         <div class="article-votes uk-text-center uk-margin-medium-top uk-padding uk-padding-remove-horizontal border-bottom border-top">
                             <h3>Was this article helpful?</h3>
@@ -176,12 +163,18 @@
                 </div>
                 <div class="uk-width-1-4@m">
                     <div uk-sticky="offset: 100" class="scrollspy uk-sticky uk-active uk-card uk-card-small uk-card-body uk-padding-remove-top uk-visible@m">
-                        <h3 class="uk-card-title">Table of Contents</h3>
+                        <h3 class="uk-card-title">Mục Lục</h3>
                         <ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true; offset: 30">
-                            <li><a href="#animation-repeat">Instalation</a></li>
-                            <li><a href="#animation-delay">Quick Setup</a></li>
-                            <li><a href="#animation-fade">Advanced Options</a></li>
-                            <li><a href="#animation-scale-up">Content Import</a></li>
+                        <?php
+                            $out2 = '';
+                            foreach ($page->knowl_repeater_mat as $item) {
+                                if($item->type == 'knowl_body_para') {
+                                    $out2 .= "<li><a href='#$item->anchor_id'>$item->headline</a></li>";
+                                }
+                            }
+                            echo $out2;
+                            
+                            ?>                            
                         </ul>
                     </div>
                 </div>

@@ -1,4 +1,12 @@
-<?php namespace ProcessWire; ?>
+<?php namespace ProcessWire;
+//** Chỗ này save counter để biết */
+if (!$user->isSuperuser()) {
+    $page->visitor_counter += 1;
+    $page->of(false); //Xem cheatSheet
+    $page->save('visitor_counter');
+    $page->of(true);
+}
+?>
 
 <pw-region id="page-content">
 		<!--Nav bar -->

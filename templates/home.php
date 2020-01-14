@@ -62,15 +62,8 @@ function renderDanhMucKienThuc($items)
                         <li><a href="article.html">Lorem ipsum dolor sit amet, consectetur adipiscing sed iusmod</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h3>Recent Articles</h3>
-                    <ul class="uk-list uk-list-large uk-list-divider link-icon-right">
-                        <li><a href="article.html">Lorem ipsum dolor sit ut labore et dolore magna aliqua</a></li>
-                        <li><a href="article.html">Sed ut perspiciatis unde omnis iste natus err aperiam</a></li>
-                        <li><a href="article.html">Consectetur adipiscing elit sed do eiusmod</a></li>
-                        <li><a href="article.html">Donseced do eiusmod tempor incididunt ut labore magna aliqua</a></li>
-                        <li><a href="article.html">Sed utem accusantium doloremque laudantium totam</a></li>
-                    </ul>
+                <!-- Bài gần đâu -->
+                <?php include("./article-recent-posts.php"); ?>
                 </div>
             </div>
         </div>
